@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter, Manrope } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import MobileCtaBar from "@/components/layout/MobileCtaBar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <MobileCtaBar />
       </body>
     </html>
   );

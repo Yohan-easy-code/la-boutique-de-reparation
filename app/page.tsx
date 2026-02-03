@@ -1,10 +1,19 @@
 import Hero from "@/components/sections/Hero";
-import Image from "next/image";
+import ProofStrip from "@/components/sections/ProofStrip";
+import ServicesGrid from "@/components/sections/ServicesGrid";
+import Steps from "@/components/sections/Steps";
+import FAQ from "@/components/sections/FAQ";
+import ContactBlock from "@/components/sections/ContactBlock";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <main className="pb-20 sm:pb-0">
       <Hero />
-    </div>
+      <ProofStrip />
+      <ServicesGrid />
+      <Steps />
+      <FAQ />
+      <ContactBlock />
+    </main>
   );
 }
