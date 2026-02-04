@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { fadeUp, hoverLift, container } from "@/components/ui/motion";
+import { fadeUp, hoverLift } from "@/components/ui/motion";
 
 import { proofs } from "@/lib/content";
 import { Shield, Timer, BadgeCheck, Lock } from "lucide-react";
@@ -23,10 +23,10 @@ export default function ProofStrip() {
           return (
             <motion.div
               key={p.title}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
               variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
               whileHover={hoverLift}
               transition={{ duration: 0.35 }}
               className="rounded-2xl border border-white/10 bg-white/5 p-5"

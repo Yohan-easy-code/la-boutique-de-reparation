@@ -31,6 +31,9 @@ export default function Steps() {
             <motion.div
               key={s.title}
               variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
               whileHover={hoverLift}
               className="relative rounded-2xl border border-white/10 bg-white/5 p-6"
             >

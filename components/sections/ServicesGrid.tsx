@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { fadeUp, hoverLift, container } from "@/components/ui/motion";
+import { fadeUp, hoverLift } from "@/components/ui/motion";
 import { services } from "@/lib/content";
 import {
   Smartphone,
@@ -54,6 +54,9 @@ export default function ServicesGrid() {
             <motion.div
               key={s.id}
               variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
               whileHover={hoverLift}
               className="rounded-2xl border border-white/10 bg-white/5 p-5"
             >
