@@ -1,14 +1,19 @@
 import Link from "next/link";
 import { PhoneCall, MessageCircle } from "lucide-react";
 import { contactInfo } from "@/lib/content";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link href="/" className="text-sm font-semibold text-white">
-          {contactInfo.businessName}
-        </Link>
+        <Image
+          src="/images/logo.png"
+          alt="La Boutique de Réparation"
+          width={160}
+          height={40}
+          className="h-8 w-auto"
+        />
 
         <div className="hidden items-center gap-6 sm:flex">
           <Link
@@ -36,9 +41,9 @@ export default function Navbar() {
               href={contactInfo.whatsapp}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-xl border border-blue-500 text-blue-400 hover:bg-blue-500/10 px-4 py-2 text-sm font-medium transition "
             >
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-4 w-4 " />
               WhatsApp
             </a>
           </div>
