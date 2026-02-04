@@ -1,4 +1,7 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeUp, hoverLift, container } from "@/components/ui/motion";
 import { services } from "@/lib/content";
 import {
   Smartphone,
@@ -37,7 +40,7 @@ export default function ServicesGrid() {
 
         <Link
           href="/services"
-          className="hidden items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10 sm:inline-flex"
+          className="hidden items-center gap-2 rounded-xl border border-blue-500 text-blue-400 hover:bg-blue-500/10 px-3 py-2 text-sm font-medium transition sm:inline-flex"
         >
           Voir tous les services <ArrowRight className="h-4 w-4" />
         </Link>
@@ -48,9 +51,11 @@ export default function ServicesGrid() {
           const Icon = iconMap[s.icon as IconKey] ?? Smartphone;
 
           return (
-            <div
+            <motion.div
               key={s.id}
-              className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
+              variants={fadeUp}
+              whileHover={hoverLift}
+              className="rounded-2xl border border-white/10 bg-white/5 p-5"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
@@ -76,7 +81,7 @@ export default function ServicesGrid() {
                   Demander un devis <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

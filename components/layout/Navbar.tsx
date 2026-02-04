@@ -7,13 +7,15 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Image
-          src="/images/logo.png"
-          alt="La Boutique de Réparation"
-          width={160}
-          height={40}
-          className="h-8 w-auto"
-        />
+        <Link href="/" aria-label="Retour à l'accueil" className="flex items-center">
+          <Image
+            src="/images/logo.png"
+            alt="La Boutique de Réparation"
+            width={160}
+            height={40}
+            className="h-8 w-auto"
+          />
+        </Link>
 
         <div className="hidden items-center gap-6 sm:flex">
           <Link

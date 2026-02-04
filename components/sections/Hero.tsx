@@ -43,7 +43,7 @@ export default function Hero() {
 
               <a
                 href="https://wa.me/33000000000"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 font-medium text-white transition hover:bg-white/10"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-blue-500 text-blue-400 hover:bg-blue-500/10 px-5 py-3 font-medium transition "
                 target="_blank"
                 rel="noreferrer"
               >

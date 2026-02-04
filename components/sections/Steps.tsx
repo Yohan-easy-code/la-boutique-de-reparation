@@ -1,5 +1,8 @@
+"use client";
 import { steps } from "@/lib/content";
 import { Search, Wrench, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeUp, hoverLift } from "@/components/ui/motion";
 
 const iconMap = {
   Search,
@@ -25,8 +28,10 @@ export default function Steps() {
         {steps.map((s, index) => {
           const Icon = iconMap[s.icon as IconKey] ?? Search;
           return (
-            <div
+            <motion.div
               key={s.title}
+              variants={fadeUp}
+              whileHover={hoverLift}
               className="relative rounded-2xl border border-white/10 bg-white/5 p-6"
             >
               <div className="flex items-start justify-between gap-4">
@@ -43,7 +48,7 @@ export default function Steps() {
               <p className="mt-2 text-sm leading-relaxed text-white/70">
                 {s.description}
               </p>
-            </div>
+            </motion.div>
           );
         })}
       </div>

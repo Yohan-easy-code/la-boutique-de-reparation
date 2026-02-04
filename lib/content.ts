@@ -129,3 +129,29 @@ export const steps = [
     icon: "CheckCircle2",
   },
 ];
+
+export const testimonials = [
+  {
+    author: "Julien M.",
+    rating: 5,
+    date: "Janvier 2025",
+    text: "Écran remplacé en moins d’une heure. Accueil pro, explications claires et téléphone comme neuf.",
+  },
+  {
+    author: "Sophie L.",
+    rating: 5,
+    date: "Décembre 2024",
+    text: "Très sérieux. Batterie changée rapidement, prix annoncé respecté. Je recommande sans hésiter.",
+  },
+  {
+    author: "Karim D.",
+    rating: 5,
+    date: "Novembre 2024",
+    text: "Diagnostic rapide et honnête. On m’a expliqué les options avant réparation. Travail propre.",
+  },
+];
+
+export const google = {
+  reviewsUrl:
+    "https://www.google.com/search?sca_esv=05b0eef4b2f0cf75&sxsrf=ANbL-n7BDRBJzR9tyCKu8joc9J_xUgmIbA:1770218906739&q=La+Boutique+de+R%C3%A9paration+Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDQ2szAwMjMytzQwM7G0NDYzNN7AyPiKUd4nUcEpv7Qks7A0VSElVSHo8MqCxKLEksz8PAXHssziRayEVAAA7sSYAl8AAAA&rldimm=11368026279064993613&tbm=lcl&hl=fr-FR&sa=X&ved=2ahUKEwj1ovGok8CSAxWjfaQEHYUOH9AQ9fQKegQITRAG&biw=1512&bih=861&dpr=2&aic=0#lkt=LocalPoiReviews",
+};
