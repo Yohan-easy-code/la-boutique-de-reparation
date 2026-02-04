@@ -45,6 +45,38 @@ export const services = [
     icon: "Stethoscope",
     duration: "15–30 min",
   },
+  {
+    id: "pc-diagnostic",
+    title: "Diagnostic PC / Mac",
+    description:
+      "Analyse lenteur, bug, panne : diagnostic clair avant intervention.",
+    icon: "Monitor",
+    duration: "30–60 min",
+  },
+  {
+    id: "pc-ssd",
+    title: "Upgrade SSD / RAM",
+    description:
+      "Boost de performance : remplacement SSD, ajout RAM, optimisation.",
+    icon: "HardDrive",
+    duration: "1–2 h",
+  },
+  {
+    id: "pc-clean",
+    title: "Nettoyage / surchauffe",
+    description:
+      "Dépoussiérage, pâte thermique, ventilateurs : réduction température.",
+    icon: "Fan",
+    duration: "1–2 h",
+  },
+  {
+    id: "mac-setup",
+    title: "Réinstallation / sauvegarde",
+    description:
+      "Réinstallation système, sauvegarde, transfert, récupération de données.",
+    icon: "RefreshCcw",
+    duration: "Selon cas",
+  },
 ];
 
 export const contactInfo = {
@@ -155,3 +187,14 @@ export const google = {
   reviewsUrl:
     "https://www.google.com/search?sca_esv=05b0eef4b2f0cf75&sxsrf=ANbL-n7BDRBJzR9tyCKu8joc9J_xUgmIbA:1770218906739&q=La+Boutique+de+R%C3%A9paration+Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDQ2szAwMjMytzQwM7G0NDYzNN7AyPiKUd4nUcEpv7Qks7A0VSElVSHo8MqCxKLEksz8PAXHssziRayEVAAA7sSYAl8AAAA&rldimm=11368026279064993613&tbm=lcl&hl=fr-FR&sa=X&ved=2ahUKEwj1ovGok8CSAxWjfaQEHYUOH9AQ9fQKegQITRAG&biw=1512&bih=861&dpr=2&aic=0#lkt=LocalPoiReviews",
 };
+
+export const computerRepair = [
+  {
+    title: "MacBook / iMac",
+    points: ["Diagnostic", "Réinstallation", "Optimisation", "Récupération"],
+  },
+  {
+    title: "PC portable / fixe",
+    points: ["SSD / RAM", "Nettoyage surchauffe", "Windows", "Sauvegarde"],
+  },
+];

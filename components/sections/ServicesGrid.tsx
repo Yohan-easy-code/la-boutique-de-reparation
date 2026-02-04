@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeUp, hoverLift } from "@/components/ui/motion";
 import { services } from "@/lib/content";
+import { Monitor, HardDrive, Fan, RefreshCcw } from "lucide-react";
 import {
   Smartphone,
   Battery,
@@ -20,6 +21,10 @@ const iconMap = {
   Camera,
   Droplets,
   Stethoscope,
+  Monitor,
+  HardDrive,
+  Fan,
+  RefreshCcw,
 } as const;
 
 type IconKey = keyof typeof iconMap;
