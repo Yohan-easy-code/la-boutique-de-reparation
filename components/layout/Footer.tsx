@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { contactInfo } from "@/lib/content";
 import { PhoneCall, MessageCircle, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -9,9 +10,19 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <p className="text-sm font-semibold text-white">
-              {contactInfo.businessName}
-            </p>
+            <Link
+              href="/"
+              aria-label="Retour à l'accueil"
+              className="flex items-center"
+            >
+              <Image
+                src="/images/logo.png"
+                alt="La Boutique de Réparation"
+                width={160}
+                height={40}
+                className="h-8 w-auto"
+              />
+            </Link>
             <p className="mt-2 text-sm leading-relaxed text-white/70">
               Réparation smartphone rapide : écran, batterie, charge, caméra,
               diagnostic.
@@ -103,7 +114,17 @@ export default function Footer() {
             © {new Date().getFullYear()} {contactInfo.businessName}. Tous droits
             réservés.
           </p>
-          <p>Site vitrine • Mentions légales (à ajouter)</p>
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
+            <p>Site vitrine • Mentions légales (à ajouter)</p>
+            <a
+              href="https://yohanzouari-dev.fr/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white/60 transition hover:text-white"
+            >
+              Powered by Yohan Zouari
+            </a>
+          </div>
         </div>
       </div>
     </footer>

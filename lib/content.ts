@@ -81,12 +81,12 @@ export const services = [
 
 export const contactInfo = {
   businessName: "La Boutique de Réparation",
-  phone: "+33 0 00 00 00 00",
-  whatsapp: "https://wa.me/33000000000",
-  addressLines: ["12 Rue Exemple", "75000 Paris"],
+  phone: "+33 1 44 85 94 92",
+  whatsapp: "https://wa.me/33144859492",
+  addressLines: ["59 Rue Lamarck", "75018 Paris"],
   hours: [
-    { label: "Lun–Ven", value: "10:00 – 19:00" },
-    { label: "Sam", value: "10:00 – 17:00" },
+    { label: "Lun", value: "13:00 – 19:30" },
+    { label: "Mar-Sam", value: "11:00 – 19:30" },
     { label: "Dim", value: "Fermé" },
   ],
   // Option 1: un lien Google Maps prêt (meilleur UX)
@@ -164,22 +164,22 @@ export const steps = [
 
 export const testimonials = [
   {
-    author: "Julien M.",
+    author: "Gabriel",
     rating: 5,
-    date: "Janvier 2025",
-    text: "Écran remplacé en moins d’une heure. Accueil pro, explications claires et téléphone comme neuf.",
+    date: "Novembre 2025",
+    text: "Super boutique. Changement de batterie, réparation de châssis, et même intervention sur une alarme incendie : tout a été fait rapidement et proprement. Technicien professionnel, sérieux et vraiment à l’écoute. Merci pour la qualité du service ! ",
   },
   {
-    author: "Sophie L.",
+    author: "Alexandre Meyer",
     rating: 5,
-    date: "Décembre 2024",
-    text: "Très sérieux. Batterie changée rapidement, prix annoncé respecté. Je recommande sans hésiter.",
+    date: "Janvier 2026",
+    text: "Réparation efficace et très bon conseil. Options clairement expliquées et devis très clair avant une réparation faite en 2 heures. On ne demande rien de mieux !",
   },
   {
-    author: "Karim D.",
+    author: "Jeanne Leroy",
     rating: 5,
-    date: "Novembre 2024",
-    text: "Diagnostic rapide et honnête. On m’a expliqué les options avant réparation. Travail propre.",
+    date: "Juillet 2025",
+    text: "Je recommande à 100%. Le gérant est une personne très honnête, arrangeante et efficace et les réparations sont de qualité.",
   },
 ];
 
