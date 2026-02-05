@@ -1,4 +1,7 @@
 import type { Variants } from "framer-motion";
+import { cubicBezier } from "framer-motion";
+
+const ease = cubicBezier(0.16, 1, 0.3, 1);
 
 export const container: Variants = {
   hidden: {},
@@ -16,16 +19,15 @@ export const fadeUp: Variants = {
     y: 0,
     transition: {
       duration: 0.45,
-      ease: [0.16, 1, 0.3, 1], // ✅ easeOut "premium"
+      ease,
     },
   },
 };
 
-// Pour whileHover (pas besoin de Variants)
 export const hoverLift = {
   y: -6,
   transition: {
     duration: 0.25,
-    ease: [0.16, 1, 0.3, 1],
+    ease,
   },
 } as const;

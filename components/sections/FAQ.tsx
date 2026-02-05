@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { faqs } from "@/lib/content";
+import { motion, cubicBezier } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { faqs } from "@/lib/content";
+
+const ease = cubicBezier(0.16, 1, 0.3, 1);
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -11,40 +14,59 @@ export default function FAQ() {
     <section className="mx-auto max-w-6xl px-4 py-14 sm:py-20">
       <div className="max-w-2xl">
         <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          FAQ
+          Questions fréquentes
         </h2>
         <p className="mt-2 text-white/70">
-          Les réponses aux questions les plus fréquentes.
+          Tout ce que tu dois savoir avant une réparation.
         </p>
       </div>
 
       <div className="mt-8 grid gap-3">
         {faqs.map((item, idx) => {
           const isOpen = openIndex === idx;
-          return (
-            <button
-              key={item.question}
-              type="button"
-              onClick={() => setOpenIndex(isOpen ? null : idx)}
-              className="w-full rounded-2xl border border-white/10 bg-white/5 p-5 text-left transition hover:bg-white/10"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <p className="text-base font-medium text-white">
-                  {item.question}
-                </p>
-                <ChevronDown
-                  className={`h-5 w-5 shrink-0 text-white/70 transition ${
-                    isOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </div>
 
+          return (
+            <motion.div
+              key={item.question}
+              layout
+              transition={{ duration: 0.45, ease }}
+              className="overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+            >
+              {/* Header */}
+              <button
+                type="button"
+                onClick={() => setOpenIndex(isOpen ? null : idx)}
+                className="flex w-full items-center justify-between gap-4 p-5 text-left"
+              >
+                <span className="text-base font-medium text-white">
+                  {item.question}
+                </span>
+
+                <motion.span
+                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  transition={{ duration: 0.35, ease }}
+                  className="shrink-0"
+                >
+                  <ChevronDown className="h-5 w-5 text-white/70" />
+                </motion.span>
+              </button>
+
+              {/* Content */}
               {isOpen && (
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
-                  {item.answer}
-                </p>
+                <motion.div
+                  layout
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.35, ease }}
+                  className="px-5 pb-5"
+                >
+                  <p className="text-sm leading-relaxed text-white/70">
+                    {item.answer}
+                  </p>
+                </motion.div>
               )}
-            </button>
+            </motion.div>
           );
         })}
       </div>

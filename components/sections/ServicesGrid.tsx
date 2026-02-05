@@ -68,7 +68,7 @@ export default function ServicesGrid() {
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10">
-                    <Icon className="h-5 w-5 text-white" />
+                    <Icon className="h-5 w-5 text-blue-500" />
                   </div>
                   <div>
                     <p className="text-lg font-medium text-white">{s.title}</p>

@@ -39,7 +39,7 @@ export default function Steps() {
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="grid h-11 w-11 place-items-center rounded-xl bg-white/10">
-                  <Icon className="h-5 w-5 text-white" />
+                  <Icon className="h-5 w-5 text-blue-500" />
                 </div>
 
                 <span className="text-sm font-medium text-white/50">

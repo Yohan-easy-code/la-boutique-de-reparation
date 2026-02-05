@@ -41,9 +41,13 @@ export default function ComputerRepair() {
             <div className="flex items-center justify-between">
               <p className="text-lg font-medium text-white">{b.title}</p>
               {idx === 0 ? (
-                <Laptop className="h-5 w-5 text-white/70" />
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10">
+                  <Laptop className="h-5 w-5 text-blue-500" />
+                </div>
               ) : (
-                <Monitor className="h-5 w-5 text-white/70" />
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10">
+                  <Monitor className="h-5 w-5 text-blue-500" />
+                </div>
               )}
             </div>
 

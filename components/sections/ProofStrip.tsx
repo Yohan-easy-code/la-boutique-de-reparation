@@ -33,7 +33,7 @@ export default function ProofStrip() {
             >
               <div className="flex items-start gap-3">
                 <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10">
-                  <Icon className="h-5 w-5 text-white" />
+                  <Icon className="h-5 w-5 text-blue-500" />
                 </div>
                 <div>
                   <p className="text-base font-medium text-white">{p.title}</p>
