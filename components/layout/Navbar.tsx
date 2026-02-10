@@ -1,15 +1,34 @@
+"use client";
+
 import Link from "next/link";
 import { PhoneCall, MessageCircle } from "lucide-react";
 import { contactInfo } from "@/lib/content";
 import Image from "next/image";
+import ThemeToggle from "@/components/ui/ThemeToggle";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // avoid hydration mismatch when reading theme
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setMounted(true), []);
+
+  const current = mounted ? (theme === "system" ? systemTheme : theme) : null;
+  const logoSrc = current === "light" ? "/images/logo-black.png" : "/images/logo.png";
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-base bg-surface-2 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link href="/" aria-label="Retour à l'accueil" className="flex items-center">
+        <Link
+          href="/"
+          aria-label="Retour à l'accueil"
+          className="flex items-center"
+        >
           <Image
-            src="/images/logo.png"
+            src={logoSrc}
             alt="La Boutique de Réparation"
             width={160}
             height={40}
@@ -20,13 +39,13 @@ export default function Navbar() {
         <div className="hidden items-center gap-6 sm:flex">
           <Link
             href="/services"
-            className="text-sm text-white/70 hover:text-white"
+            className="text-sm text-muted hover:text-base"
           >
             Services
           </Link>
           <Link
             href="/contact"
-            className="text-sm text-white/70 hover:text-white"
+            className="text-sm text-muted hover:text-base"
           >
             Contact
           </Link>
@@ -51,13 +70,22 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile: simple link */}
-        <Link
-          href="/contact"
-          className="sm:hidden rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white"
-        >
-          Contact
-        </Link>
+        {/* Mobile: links */}
+        <div className="sm:hidden flex items-center gap-2">
+          <Link
+            href="/services"
+            className="rounded-lg border border-base bg-surface px-3 py-2 text-sm text-base hover:bg-surface-2"
+          >
+            Services
+          </Link>
+          <Link
+            href="/contact"
+            className="rounded-lg border border-base bg-surface px-3 py-2 text-sm text-base hover:bg-surface-2"
+          >
+            Contact
+          </Link>
+        </div>
+        <ThemeToggle />
       </nav>
     </header>
   );

@@ -81,22 +81,35 @@ export const services = [
 
 export const contactInfo = {
   businessName: "La Boutique de Réparation",
-  phone: "+33 1 44 85 94 92",
-  whatsapp: "https://wa.me/33144859492",
-  addressLines: ["59 Rue Lamarck", "75018 Paris"],
+  phone: "01 46 38 54 81",
+  whatsapp: "https://wa.me/33146385481",
+  addresses: [
+    {
+      label: "59 Rue Lamarck, 75018 Paris",
+      lines: ["59 Rue Lamarck", "75018 Paris"],
+      mapsUrl: "https://www.google.com/maps?q=59+Rue+Lamarck+75018+Paris",
+    },
+    {
+      label: "27 Avenue Jean Jaurès, 92140 Clamart",
+      lines: ["27 Avenue Jean Jaurès", "92140 Clamart"],
+      mapsUrl:
+        "https://www.google.com/maps?q=27+Avenue+Jean+Jaur%C3%A8s+92140+Clamart",
+    },
+  ],
   hours: [
     { label: "Lun", value: "13:00 – 19:30" },
     { label: "Mar-Sam", value: "11:00 – 19:30" },
     { label: "Dim", value: "Fermé" },
   ],
   // Option 1: un lien Google Maps prêt (meilleur UX)
-  mapsUrl: "https://www.google.com/maps?q=La+Boutique+de+Réparation",
+  mapsUrl: "https://www.google.com/maps?q=59+Rue+Lamarck+75018+Paris",
 };
 
 export const proofs = [
   {
     title: "Garantie",
-    description: "Sur la plupart des réparations (selon intervention).",
+    description:
+      "Garantie 1 an sur la plupart des réparations (selon intervention).",
     icon: "Shield",
   },
   {
@@ -106,7 +119,7 @@ export const proofs = [
   },
   {
     title: "Pièces de qualité",
-    description: "Sélection rigoureuse, montage soigné.",
+    description: "Sélection d'origine ou compatible, montage soigné.",
     icon: "BadgeCheck",
   },
   {

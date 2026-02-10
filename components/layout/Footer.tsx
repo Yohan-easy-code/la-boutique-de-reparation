@@ -1,11 +1,25 @@
+"use client";
+
 import Link from "next/link";
 import { contactInfo } from "@/lib/content";
 import { PhoneCall, MessageCircle, MapPin } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export default function Footer() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // avoid hydration mismatch when reading theme
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setMounted(true), []);
+
+  const current = mounted ? (theme === "system" ? systemTheme : theme) : null;
+  const logoSrc = current === "light" ? "/images/logo-black.png" : "/images/logo.png";
+
   return (
-    <footer className="border-t border-white/10 bg-black/30">
+    <footer className="border-t border-base bg-surface-2">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -16,14 +30,14 @@ export default function Footer() {
               className="flex items-center"
             >
               <Image
-                src="/images/logo.png"
+                src={logoSrc}
                 alt="La Boutique de Réparation"
                 width={160}
                 height={40}
                 className="h-8 w-auto"
               />
             </Link>
-            <p className="mt-2 text-sm leading-relaxed text-white/70">
+            <p className="mt-2 text-sm leading-relaxed text-muted">
               Réparation smartphone rapide : écran, batterie, charge, caméra,
               diagnostic.
             </p>
@@ -31,17 +45,17 @@ export default function Footer() {
 
           {/* Pages */}
           <div>
-            <p className="text-sm font-semibold text-white">Pages</p>
+            <p className="text-sm font-semibold text-base">Pages</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
-                <Link href="/" className="text-white/70 hover:text-white">
+                <Link href="/" className="text-muted hover:text-base">
                   Accueil
                 </Link>
               </li>
               <li>
                 <Link
                   href="/services"
-                  className="text-white/70 hover:text-white"
+                  className="text-muted hover:text-base"
                 >
                   Services
                 </Link>
@@ -49,7 +63,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-white/70 hover:text-white"
+                  className="text-muted hover:text-base"
                 >
                   Contact
                 </Link>
@@ -59,17 +73,25 @@ export default function Footer() {
 
           {/* Infos */}
           <div>
-            <p className="text-sm font-semibold text-white">Infos</p>
-            <div className="mt-3 space-y-2 text-sm text-white/70">
-              <div className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 text-white/70" />
-                <div>
-                  {contactInfo.addressLines.map((line) => (
-                    <p key={line}>{line}</p>
-                  ))}
-                </div>
+            <p className="text-sm font-semibold text-base">Infos</p>
+            <div className="mt-3 space-y-2 text-sm text-muted">
+            <div className="flex items-start gap-2">
+              <MapPin className="mt-0.5 h-4 w-4 text-muted" />
+              <div>
+                {contactInfo.addresses.map((addr) => (
+                  <Link
+                    key={addr.label}
+                    href={addr.mapsUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block text-muted hover:text-base"
+                  >
+                    {addr.lines.join(", ")}
+                  </Link>
+                ))}
               </div>
-              <p className="pt-1 text-xs text-white/50">
+            </div>
+              <p className="pt-1 text-xs text-muted-2">
                 Horaires : {contactInfo.hours[0]?.label}{" "}
                 {contactInfo.hours[0]?.value} • {contactInfo.hours[1]?.label}{" "}
                 {contactInfo.hours[1]?.value}
@@ -79,7 +101,7 @@ export default function Footer() {
 
           {/* CTA */}
           <div>
-            <p className="text-sm font-semibold text-white">Devis rapide</p>
+            <p className="text-sm font-semibold text-base">Devis rapide</p>
             <div className="mt-3 flex flex-col gap-2">
               <a
                 href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
@@ -101,7 +123,7 @@ export default function Footer() {
                 href={contactInfo.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-transparent px-4 py-2 text-sm font-medium text-white/90 transition hover:bg-white/5"
+                className="inline-flex items-center justify-center rounded-xl border border-base bg-transparent px-4 py-2 text-sm font-medium text-base transition hover:bg-surface"
               >
                 Itinéraire
               </a>
@@ -109,7 +131,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-base pt-6 text-xs text-muted-2 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {contactInfo.businessName}. Tous droits
             réservés.
@@ -120,7 +142,7 @@ export default function Footer() {
               href="https://yohanzouari-dev.fr/"
               target="_blank"
               rel="noreferrer"
-              className="text-white/60 transition hover:text-white"
+              className="text-muted transition hover:text-base"
             >
               Powered by Yohan Zouari
             </a>

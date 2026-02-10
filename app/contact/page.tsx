@@ -26,8 +26,16 @@ export default function ContactPage() {
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
               <p className="text-white">{contactInfo.businessName}</p>
               <div className="mt-2 text-white/60">
-                {contactInfo.addressLines.map((line) => (
-                  <p key={line}>{line}</p>
+                {contactInfo.addresses.map((addr) => (
+                  <a
+                    key={addr.label}
+                    href={addr.mapsUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block hover:text-base"
+                  >
+                    {addr.lines.join(", ")}
+                  </a>
                 ))}
               </div>
 
@@ -42,7 +50,7 @@ export default function ContactPage() {
 
                 <a
                   href={contactInfo.whatsapp}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-blue-500 px-5 py-3 font-medium text-blue-400 transition hover:bg-blue-500/10"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-blue-500 px-5 py-3 font-medium text-blue-500 transition hover:bg-blue-500/10"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -57,7 +65,7 @@ export default function ContactPage() {
                   rel="noreferrer"
                 >
                   <MapPin className="h-5 w-5" />
-                  Itinéraire
+                  Itinéraire (Paris)
                 </a>
               </div>
             </div>

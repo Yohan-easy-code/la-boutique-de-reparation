@@ -17,16 +17,16 @@ export default function Hero() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* copy */}
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-white/80">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-muted">
               Réparation smartphone • Rapide • Garantie
             </p>
 
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-base sm:text-5xl">
               Réparez votre téléphone{" "}
-              <span className="text-white/80">sans prise de tête.</span>
+              <span className="text-muted">sans prise de tête.</span>
             </h1>
 
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/70">
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
               Écran, batterie, connecteur de charge, caméra… Diagnostic clair et
               réparation express selon disponibilité.
             </p>
@@ -53,7 +53,7 @@ export default function Hero() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-transparent px-5 py-3 font-medium text-white/90 transition hover:bg-white/5"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-transparent px-5 py-3 font-medium text-base transition hover:bg-white/5"
               >
                 <MapPin className="h-5 w-5" />
                 Nous trouver
@@ -61,18 +61,18 @@ export default function Hero() {
             </div>
 
             {/* trust */}
-            <div className="mt-8 grid max-w-xl grid-cols-2 gap-3 text-sm text-white/70 sm:grid-cols-3">
+            <div className="mt-8 grid max-w-xl grid-cols-2 gap-3 text-sm text-muted sm:grid-cols-3">
               <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                <p className="text-white">30–60 min</p>
-                <p className="text-white/60">Réparations courantes</p>
+                <p className="text-base">30–60 min</p>
+                <p className="text-muted-2">Réparations courantes</p>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                <p className="text-white">Garantie</p>
-                <p className="text-white/60">Selon intervention</p>
+                <p className="text-base">Garantie</p>
+                <p className="text-muted-2">Selon intervention</p>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                <p className="text-white">Devis rapide</p>
-                <p className="text-white/60">Par téléphone/WhatsApp</p>
+                <p className="text-base">Devis rapide</p>
+                <p className="text-muted-2">Par téléphone/WhatsApp</p>
               </div>
             </div>
           </div>
@@ -95,8 +95,8 @@ export default function Hero() {
                 />
               </div>
 
-              <div className="mx-auto w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/70">
-                <p className="text-white">Astuce</p>
+              <div className="mx-auto w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-muted">
+                <p className="text-base">Astuce</p>
                 <p className="mt-1">
                   Décris le problème + modèle du téléphone sur WhatsApp pour un
                   devis rapide.

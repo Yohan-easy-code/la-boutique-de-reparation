@@ -1,5 +1,151 @@
 @import "tailwindcss";
 
+/* LIGHT (premium) = thème alternatif */
+:root {
+  --bg: #f4f6fc; /* fond doux */
+  --card: #ffffff; /* surface principale */
+  --card-2: #f3f6ff; /* surface secondaire bleutée */
+  --border: rgba(15, 23, 42, 0.08);
+  --text: #0f172a;
+  --text-muted: #475569;
+  --text-muted-2: #64748b;
+
+  /* alias pour les nouvelles utilitaires */
+  --surface: var(--card);
+  --surface-2: var(--card-2);
+
+  /* GLASS (light only via mappings) */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg-soft: rgba(255, 255, 255, 0.38);
+  --glass-border: rgba(15, 23, 42, 0.1);
+  --glass-blur: 14px;
+  --glass-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* DARK = thème de base (inchangé visuellement) */
+.dark {
+  --bg: #0b0f17;
+  --card: rgba(255, 255, 255, 0.05);
+  --card-2: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --text-muted-2: rgba(255, 255, 255, 0.6);
+
+  /* alias identiques pour compatibilité des utilitaires */
+  --surface: var(--card);
+  --surface-2: var(--card-2);
+}
+
 body {
-  background: #0b0f17;
+  background: var(--bg);
+  color: var(--text);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted-2);
+}
+
+/* Utilitaires sémantiques (si tu veux les utiliser) */
+@layer utilities {
+  .bg-app {
+    background: var(--bg);
+  }
+  .bg-card {
+    background: var(--card);
+  }
+  .bg-card-2 {
+    background: var(--card-2);
+  }
+  .bg-surface {
+    background: var(--surface);
+  }
+  .bg-surface-2 {
+    background: var(--surface-2);
+  }
+
+  .border-app {
+    border-color: var(--border);
+  }
+  .border-base {
+    border-color: var(--border);
+  }
+
+  .text-app {
+    color: var(--text);
+  }
+  .text-base {
+    color: var(--text);
+  }
+  .text-muted {
+    color: var(--text-muted);
+  }
+  .text-muted-2 {
+    color: var(--text-muted-2);
+  }
+}
+
+/* =========================================================
+   LIGHT OVERRIDES (sans toucher au dark)
+   -> On remappe tes classes dark existantes en clair
+   ========================================================= */
+
+/* Fond de page en light : légèrement texturé pour que le glass ressorte */
+html:not(.dark) body {
+  background:
+    radial-gradient(
+      1200px 600px at 10% -10%,
+      rgba(59, 130, 246, 0.1),
+      transparent 42%
+    ),
+    radial-gradient(
+      1000px 500px at 90% 10%,
+      rgba(99, 102, 241, 0.08),
+      transparent 45%
+    ),
+    var(--bg);
+  color: var(--text);
+}
+
+/* Cards principales : bg-white/5 -> glass plus présent */
+html:not(.dark) .bg-white\/5 {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--glass-shadow);
+}
+
+/* Sous-surfaces : bg-white/10 -> glass plus doux (icônes, petits blocs) */
+html:not(.dark) .bg-white\/10 {
+  background: var(--glass-bg-soft);
+  backdrop-filter: blur(calc(var(--glass-blur) - 4px));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) - 4px));
+}
+
+/* Bordures : border-white/10 */
+html:not(.dark) .border-white\/10 {
+  border-color: var(--glass-border);
+}
+
+/* Texte : text-white + variantes */
+html:not(.dark) .text-white {
+  color: var(--text);
+}
+html:not(.dark) .text-white\/70 {
+  color: var(--text-muted);
+}
+html:not(.dark) .text-white\/60 {
+  color: var(--text-muted-2);
+}
+html:not(.dark) .text-white\/50 {
+  color: rgba(15, 23, 42, 0.45);
+}
+
+/* Optionnel : rendre les "fonds noirs translucides" plus clairs (inputs, overlays) */
+html:not(.dark) .bg-black\/30 {
+  background-color: rgba(255, 255, 255, 0.72);
+}
+html:not(.dark) .bg-black\/50 {
+  background-color: rgba(255, 255, 255, 0.78);
 }

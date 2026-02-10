@@ -27,7 +27,7 @@ export default function ContactBlock() {
 
             <a
               href={contactInfo.whatsapp}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-blue-500 text-blue-400 hover:bg-blue-500/10 px-5 py-3 font-medium transition"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-blue-500 text-blue-500 hover:bg-blue-500/10 px-5 py-3 font-medium transition"
               target="_blank"
               rel="noreferrer"
             >
@@ -47,17 +47,23 @@ export default function ContactBlock() {
           </div>
 
           <div className="mt-8 space-y-4 text-sm text-white/70">
-            <div className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-5 w-5 text-white/80" />
-              <div>
-                <p className="text-white">{contactInfo.businessName}</p>
-                {contactInfo.addressLines.map((line) => (
-                  <p key={line} className="text-white/60">
-                    {line}
-                  </p>
-                ))}
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-5 w-5 text-white/80" />
+                <div>
+                  <p className="text-white">{contactInfo.businessName}</p>
+                  {contactInfo.addresses.map((addr) => (
+                    <a
+                      key={addr.label}
+                      href={addr.mapsUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block text-white/60 hover:text-white"
+                    >
+                      {addr.lines.join(", ")}
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
 
             <div className="flex items-start gap-3">
               <Clock className="mt-0.5 h-5 w-5 text-white/80" />

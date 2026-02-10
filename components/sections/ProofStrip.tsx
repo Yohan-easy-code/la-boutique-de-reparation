@@ -1,7 +1,7 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { fadeUp, hoverLift } from "@/components/ui/motion";
-
 import { proofs } from "@/lib/content";
 import { Shield, Timer, BadgeCheck, Lock } from "lucide-react";
 
@@ -20,6 +20,7 @@ export default function ProofStrip() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {proofs.map((p) => {
           const Icon = iconMap[p.icon as IconKey] ?? Shield;
+
           return (
             <motion.div
               key={p.title}
@@ -35,6 +36,7 @@ export default function ProofStrip() {
                 <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10">
                   <Icon className="h-5 w-5 text-blue-500" />
                 </div>
+
                 <div>
                   <p className="text-base font-medium text-white">{p.title}</p>
                   <p className="mt-1 text-sm leading-relaxed text-white/70">
